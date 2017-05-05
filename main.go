@@ -10,14 +10,15 @@ import (
 
 type CaptchaResponse struct {
 	ImageBase64 captcha.Image `json:"image"`
-	Solution string `json:"solution"`
+	Solution []byte `json:"solution"`
 }
 
 func getCaptcha(w http.ResponseWriter, r *http.Request) {
 	myCaptcha := captcha.New()
 
-	image := captcha.NewImage(myCaptcha, []byte("what the fuck"), captcha.StdWidth, captcha.StdHeight)
-	captchaResponse := CaptchaResponse{*image.Paletted, "qwertz"}
+	foo := captcha.RandomDigits(6)
+	image := captcha.NewImage(myCaptcha, foo, captcha.StdWidth, captcha.StdHeight)
+	captchaResponse := CaptchaResponse{*image, foo}
 
 	b, _ := json.Marshal(captchaResponse)
 
