@@ -60,7 +60,7 @@ func convert(b []byte) string {
 }
 
 func init() {
-	http.HandleFunc("/v2/getCaptcha", handleCaptcha)
+	http.HandleFunc("/", handleCaptcha)
 }
 
 func main() {
