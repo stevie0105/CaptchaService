@@ -65,7 +65,7 @@ func init() {
 
 func main() {
 	fmt.Println("Server is at localhost:8666")
-	if err := http.ListenAndServe("localhost:8666", nil); err != nil {
+	if err := http.ListenAndServe(":8666", nil); err != nil {
 		log.Fatal(err)
 	}
 }
