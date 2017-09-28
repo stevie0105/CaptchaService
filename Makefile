@@ -1,4 +1,4 @@
-run: container-build
+run: binary-build container-build
 	docker run -d -p 8666:8666 --name captcha-service captcha-service
 
 container-build:
