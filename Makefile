@@ -10,3 +10,6 @@ binary-build: go-get
 
 go-get:
 	go get
+
+complete-remove:
+	docker stop captcha-service && docker rm captcha-service && docker rmi captcha-service
