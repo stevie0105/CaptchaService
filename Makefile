@@ -1,6 +1,5 @@
-run: binary-build container-build
+run: container-build
 	docker run -d -p 8666:8666 --name captcha-service captcha-service
-	rm captcha-service
 
 container-build:
 	docker build -t captcha-service .
@@ -11,5 +10,5 @@ binary-build: go-get
 go-get:
 	go get
 
-complete-remove:
+docker-remove:
 	docker stop captcha-service && docker rm captcha-service && docker rmi captcha-service
